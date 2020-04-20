@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SchoolChecker</string>
+    <string name="text_name">Ex_name</string>
+    <string name="start">Начать тест</string>
+    <string name="Name">Имя</string>
+    <string name="Sec_name">Фамилия</string>
+    <string name="School">Школа(номер/название)</string>
+    <string name="Clas_s">Класс(номер, буква)</string>
+</resources>
