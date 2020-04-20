@@ -1,8 +1,10 @@
 package com.example.pro_samsung;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 
 import androidx.room.Room;
+
 
 public class App extends Application {
 
@@ -14,8 +16,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        database = Room.databaseBuilder(this, AppDatabase.class, "database")
-                .build();
+        database = Room.databaseBuilder(this, AppDatabase.class, "database").build();
     }
 
     public static App getInstance() {

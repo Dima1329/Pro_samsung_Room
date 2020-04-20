@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Question {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public long id;
 
     private String question;
@@ -16,8 +16,7 @@ public class Question {
     private String variant4;
     private int answer;
 
-    public Question(long id, String question, String variant1, String variant2, String variant3, String variant4, int answer) {
-        this.id = id;
+    public Question( String question, String variant1, String variant2, String variant3, String variant4, int answer) {
         this.question = question;
         this.variant1 = variant1;
         this.variant2 = variant2;

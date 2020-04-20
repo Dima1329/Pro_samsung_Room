@@ -2,6 +2,7 @@ package com.example.pro_samsung;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ public class TestActivity extends AppCompatActivity {
 
     private List<Question> questions = new ArrayList<>();
 
-    private int num_of_ex = 5;
+    private int num_of_ex = 1;
 
     private int [] correct_answer_or_not = new  int [num_of_ex];
     private int i = 0;
@@ -58,10 +59,7 @@ public class TestActivity extends AppCompatActivity {
         var3.setOnClickListener(onClickListener3);
         var4.setOnClickListener(onClickListener4);
 
-        AppDatabase db = App.getInstance().getDatabase();
-        QuestionDao questionDao = db.questionDao();
-
-        questions = questionDao.getAll();
+        getQuestions();
         Collections.shuffle(questions);
         List<Question> all_questions = new ArrayList<>(questions);
         questions.clear();
@@ -159,5 +157,29 @@ public class TestActivity extends AppCompatActivity {
         var2.setText(questions.get(i).getVariant2());
         var3.setText(questions.get(i).getVariant3());
         var4.setText(questions.get(i).getVariant4());
+    }
+    private void getQuestions() {
+        class GetQuestions extends AsyncTask<Void, Void, List<Question>> {
+            
+            @Override
+            protected List<Question> doInBackground(Void... voids) {
+                List<Question> i = DBClient
+                        .getInstance(getApplicationContext())
+                        .getAppDatabase().questionDao()
+                        .getAll();
+                questions.addAll(i);
+                return i;
+            }
+
+            @Override
+            protected void onPostExecute(List<Question> questions2) {
+                super.onPostExecute(questions2);
+
+            }
+
+        }
+        GetQuestions gt = new GetQuestions();
+        gt.execute();
+
     }
 }
