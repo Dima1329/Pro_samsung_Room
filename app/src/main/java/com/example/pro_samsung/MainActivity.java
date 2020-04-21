@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText e_name,e_second_name,e_school,e_clas_s;
     public String name,second_name,school,clas_s;
     public QuestionDao questionDao;
+    private Intent i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +62,11 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("school",school);
                     editor.putString("clas_s",clas_s);
                     editor.apply();
-
+                    i = new Intent(MainActivity.this, TestActivity.class);
+                    i.putExtra("name",name);
+                    i.putExtra("second_name",second_name);
+                    i.putExtra("school",school);
+                    i.putExtra("clas_s",clas_s);
                     class SaveTask extends AsyncTask<Void, Void, Void> {
 
                         @Override
@@ -77,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
                                     .insert(q);
 
 
+
+
+
                             return null;
                         }
 
@@ -85,12 +94,8 @@ public class MainActivity extends AppCompatActivity {
                             super.onPostExecute(aVoid);
                             finish();
 
-                            Intent i = new Intent(MainActivity.this, TestActivity.class);
-                            i.putExtra("name",name);
-                            i.putExtra("second_name",second_name);
-                            i.putExtra("school",school);
-                            i.putExtra("clas_s",clas_s);
                             startActivity(i);
+
                         }
                     }
 
