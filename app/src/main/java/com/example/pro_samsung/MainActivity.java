@@ -68,13 +68,23 @@ public class MainActivity extends AppCompatActivity {
 
                             Question q = new Question("    Место, где река впадает в море, озеро, другую реку","исток","приток","русло","устье",4);
 
-                            DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase()
+                                    .questionDao()
+                                    .insert(q);
+                            q = new Question("    Граница между бассейнами рек","русло","водораздел","речная система","устье",2);
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase()
+                                    .questionDao()
+                                    .insert(q);
+
+
                             return null;
                         }
 
                         @Override
                         protected void onPostExecute(Void aVoid) {
                             super.onPostExecute(aVoid);
+                            finish();
+
                             Intent i = new Intent(MainActivity.this, TestActivity.class);
                             i.putExtra("name",name);
                             i.putExtra("second_name",second_name);

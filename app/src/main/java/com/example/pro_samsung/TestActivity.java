@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class TestActivity extends AppCompatActivity {
     private TextView Ex_name;
@@ -23,7 +25,7 @@ public class TestActivity extends AppCompatActivity {
 
     private List<Question> questions = new ArrayList<>();
 
-    private int num_of_ex = 1;
+    private int num_of_ex = 2;
 
     private int [] correct_answer_or_not = new  int [num_of_ex];
     private int i = 0;
@@ -37,7 +39,46 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_layout);
+        class GetQuestions extends AsyncTask<Void, Void, List<Question>> {
 
+            @Override
+            protected List<Question> doInBackground(Void... voids) {
+                List<Question> i = DBClient
+                        .getInstance(getApplicationContext())
+                        .getAppDatabase().questionDao()
+                        .getAll();
+                questions = DBClient
+                        .getInstance(getApplicationContext())
+                        .getAppDatabase().questionDao()
+                        .getAll();
+                Set<Question> set = new HashSet<>(questions);
+                questions.clear();
+                questions.addAll(set);
+                Collections.shuffle(questions);
+                List<Question> all_questions = new ArrayList<>(questions);
+                questions.clear();
+                for (int j = 0; j < num_of_ex; j++) {
+                    questions.add(all_questions.get(j));
+                }
+                return i;
+            }
+
+            @Override
+            protected void onPostExecute(List<Question> questions2) {
+                super.onPostExecute(questions2);
+
+
+
+            }
+
+        }
+        GetQuestions gt = new GetQuestions();
+        gt.execute();
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Bundle arguments = getIntent().getExtras();
         name = arguments.get("name").toString();
         sec_name = arguments.get("second_name").toString();
@@ -59,16 +100,15 @@ public class TestActivity extends AppCompatActivity {
         var3.setOnClickListener(onClickListener3);
         var4.setOnClickListener(onClickListener4);
 
-        getQuestions();
-        Collections.shuffle(questions);
-        List<Question> all_questions = new ArrayList<>(questions);
-        questions.clear();
-        for (int j = 0; j < num_of_ex; j++) {
-            questions.add(all_questions.get(j));
-        }
 
 
-        update_texts();
+if(questions.size()!=0){
+    update_texts();
+
+}else {
+    Ex_name.setText("всё плохо");
+}
+
 
     }
     private final View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -158,28 +198,5 @@ public class TestActivity extends AppCompatActivity {
         var3.setText(questions.get(i).getVariant3());
         var4.setText(questions.get(i).getVariant4());
     }
-    private void getQuestions() {
-        class GetQuestions extends AsyncTask<Void, Void, List<Question>> {
-            
-            @Override
-            protected List<Question> doInBackground(Void... voids) {
-                List<Question> i = DBClient
-                        .getInstance(getApplicationContext())
-                        .getAppDatabase().questionDao()
-                        .getAll();
-                questions.addAll(i);
-                return i;
-            }
 
-            @Override
-            protected void onPostExecute(List<Question> questions2) {
-                super.onPostExecute(questions2);
-
-            }
-
-        }
-        GetQuestions gt = new GetQuestions();
-        gt.execute();
-
-    }
 }
