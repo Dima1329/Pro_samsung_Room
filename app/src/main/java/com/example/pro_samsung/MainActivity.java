@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         questionDao = db.questionDao();
 
 
-        
+
         Button start = findViewById(R.id.var3);
         e_name = findViewById(R.id.name);
         e_second_name = findViewById(R.id.sec_name);
@@ -81,10 +81,18 @@ public class MainActivity extends AppCompatActivity {
                             DBClient.getInstance(getApplicationContext()).getAppDatabase()
                                     .questionDao()
                                     .insert(q);
-
-
-
-
+                            q = new Question("    Углубление, в котором течёт река","русло","водораздел","речная система","устье",1);
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
+                            q = new Question("    Наибольшее количество пресной воды на Земле сосредоточено в","реках","озерах","болотах","ледниках",1);
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
+                            q = new Question("    Гидросфера является","воздушной оболочкой Земли","водной оболочкой Земли","земной корой","расплавленной мантией",2);
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
+                            q = new Question("    Основной объем воды на Земле заключен:","в ледниках","в реках","в озерах","в водах Мирового океана",4);
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
+                            q = new Question("    К водам суши относят:","заливы и проливы","реки и озера","моря и озера","моря и ледники",1);
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
+                            q = new Question("    Какого питания реки не существует?","подземное","капельное","снеговое","грунтовое",3);
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
 
                             return null;
                         }
@@ -119,9 +127,6 @@ public class MainActivity extends AppCompatActivity {
         return name;
     }
 
-    public String getSecond_name() {
-        return second_name;
-    }
     public void loadSettings() {
         shared = getSharedPreferences("baseSettings", Context.MODE_PRIVATE);
         if(shared != null){

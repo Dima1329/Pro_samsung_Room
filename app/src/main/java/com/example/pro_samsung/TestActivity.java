@@ -25,7 +25,7 @@ public class TestActivity extends AppCompatActivity {
 
     private List<Question> questions = new ArrayList<>();
 
-    private int num_of_ex = 2;
+    private int num_of_ex = 5;
 
     private int [] correct_answer_or_not = new  int [num_of_ex];
     private int i = 0;
@@ -51,14 +51,23 @@ public class TestActivity extends AppCompatActivity {
                         .getInstance(getApplicationContext())
                         .getAppDatabase().questionDao()
                         .getAll();
-                Set<Question> set = new HashSet<>(questions);
-                questions.clear();
-                questions.addAll(set);
+
                 Collections.shuffle(questions);
                 List<Question> all_questions = new ArrayList<>(questions);
                 questions.clear();
-                for (int j = 0; j < num_of_ex; j++) {
-                    questions.add(all_questions.get(j));
+                for (int j = all_questions.size()-1; j >all_questions.size()-num_of_ex-1; j--) {
+                    boolean is_repeated=false;
+                    for (Question question : questions) {
+                        if(question.getQuestion().equals(all_questions.get(j).getQuestion())){
+                            is_repeated = true;
+                            break;
+                        }
+                    }
+                    if(is_repeated){
+                        all_questions.remove(all_questions.get(j));
+                    } else {
+                        questions.add(all_questions.get(j));
+                    }
                 }
                 return i;
             }
