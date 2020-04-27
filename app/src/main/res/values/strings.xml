@@ -6,4 +6,8 @@
     <string name="Sec_name">Фамилия</string>
     <string name="School">Школа(номер/название)</string>
     <string name="Clas_s">Класс(номер, буква)</string>
+    <string name="or">или</string>
+    <string name="Log_in">Вход для учителя</string>
+    <string name="email">Email</string>
+    <string name="pass">Пароль</string>
 </resources>

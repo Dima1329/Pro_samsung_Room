@@ -55,19 +55,8 @@ public class TestActivity extends AppCompatActivity {
                 Collections.shuffle(questions);
                 List<Question> all_questions = new ArrayList<>(questions);
                 questions.clear();
-                for (int j = all_questions.size()-1; j >all_questions.size()-num_of_ex-1; j--) {
-                    boolean is_repeated=false;
-                    for (Question question : questions) {
-                        if(question.getQuestion().equals(all_questions.get(j).getQuestion())){
-                            is_repeated = true;
-                            break;
-                        }
-                    }
-                    if(is_repeated){
-                        all_questions.remove(all_questions.get(j));
-                    } else {
-                        questions.add(all_questions.get(j));
-                    }
+                for (int i1 = 0; i1 < 5; i1++) {
+                    questions.add(all_questions.get(i1));
                 }
                 return i;
             }
@@ -75,9 +64,6 @@ public class TestActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(List<Question> questions2) {
                 super.onPostExecute(questions2);
-
-
-
             }
 
         }

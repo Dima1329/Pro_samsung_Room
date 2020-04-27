@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
@@ -18,7 +18,7 @@
 
     <EditText
         android:id="@+id/sec_name"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
@@ -27,7 +27,7 @@
 
     <EditText
         android:id="@+id/school"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
@@ -35,26 +35,60 @@
 
     <EditText
         android:id="@+id/clas_s"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/Clas_s" />
+        android:hint="@string/Clas_s"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/var3"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:text="@string/start"
         android:textColor="#CFC9EA"
         android:textSize="18sp"
+        android:layout_gravity="left"
+
         />
 
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="73dp" />
 
 
-     <!--   -->
+
+    <EditText
+        android:id="@+id/email_for_teacher"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/password_for_teacher"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/pass"
+
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button"
+        android:text="@string/Log_in"
+        android:textColor="#CFC9EA"
+        android:textSize="16sp"
+        android:layout_gravity="left"
+        />
+
+    <!--   -->
 
 
 
