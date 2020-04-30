@@ -10,4 +10,5 @@
     <string name="Log_in">Вход для учителя</string>
     <string name="email">Email</string>
     <string name="pass">Пароль</string>
+    <string name="Hint">Нажмиете на кнопку с правилным вариантом ответа</string>
 </resources>

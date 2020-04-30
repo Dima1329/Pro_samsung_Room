@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pro_samsung.Room.DBClient;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class TestActivity extends AppCompatActivity {
     private TextView Ex_name;
@@ -39,6 +39,7 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_layout);
+        @SuppressLint("StaticFieldLeak")
         class GetQuestions extends AsyncTask<Void, Void, List<Question>> {
 
             @Override
@@ -186,8 +187,9 @@ if(questions.size()!=0){
         startActivity(i);
 
     }
+
     private void update_texts() {
-        Ex_name.setText(questions.get(i).getQuestion());
+        Ex_name.setText("   "+questions.get(i).getQuestion());
         var1.setText(questions.get(i).getVariant1());
         var2.setText(questions.get(i).getVariant2());
         var3.setText(questions.get(i).getVariant3());

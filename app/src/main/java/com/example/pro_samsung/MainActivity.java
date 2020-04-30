@@ -12,11 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
+import com.example.pro_samsung.Room.DBClient;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         @SuppressLint("StaticFieldLeak")
-        class SaveTask extends AsyncTask<Void, Void, Void> {
+        class UploadForTheFirstTimeQuestion extends AsyncTask<Void, Void, Void> {
 
             @Override
             protected Void doInBackground(Void... voids) {
@@ -72,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
         e_clas_s = findViewById(R.id.clas_s);
         loadSettings();
         if(is_first_launch){
-            SaveTask st = new SaveTask();
-            st.execute();
+            UploadForTheFirstTimeQuestion uq = new UploadForTheFirstTimeQuestion();
+            uq.execute();
             Toast.makeText(this, "Это первый запуск. Стандартные вопросы загружены", Toast.LENGTH_LONG).show();
 
             try {
@@ -118,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = email_for_teacher.getText().toString();
-                String password = password_for_teacher.getText().toString();
+                String email = email_for_teacher.getText().toString().trim();
+                String password = password_for_teacher.getText().toString().trim();
                 if(email.equals("test@test.ru") && password.equals("test")){
                     Intent i = new Intent(MainActivity.this, CheaterCabinetActivity.class);
                     startActivity(i);

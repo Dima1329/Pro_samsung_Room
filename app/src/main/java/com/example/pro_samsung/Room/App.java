@@ -1,6 +1,5 @@
-package com.example.pro_samsung;
+package com.example.pro_samsung.Room;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 
 import androidx.room.Room;

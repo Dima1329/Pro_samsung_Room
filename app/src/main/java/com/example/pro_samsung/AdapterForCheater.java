@@ -2,9 +2,12 @@ package com.example.pro_samsung;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pro_samsung.Room.DBClient;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 public class AdapterForCheater extends RecyclerView.Adapter<AdapterForCheater.ViewHolder> {
@@ -61,27 +67,54 @@ public class AdapterForCheater extends RecyclerView.Adapter<AdapterForCheater.Vi
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tquestion = itemView.findViewById(R.id.item);
+            tquestion.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             AlertDialog.Builder builder = new AlertDialog.Builder(c);
-            builder.setMessage(question.getQuestion() +"/n"+
-                    question.getQuestion()+"/n"+
-                    question.getVariant1() +"/n"+
-                    question.getVariant2() +"/n"+
-                    question.getVariant3() +"/n"+
-                    question.getVariant4() +"/n"+
-                    question.getAnswer() +"/n")
+            builder.setMessage(
+                    "Вопрос: "+question.getQuestion()+"\n"+
+                    "Первый вариант ответа: "+question.getVariant1() +"\n"+
+                    "Второй вариант ответа: "+question.getVariant2() +"\n"+
+                    "Третий вариант ответа: "+question.getVariant3() +"\n"+
+                    "Четвёртый вариант ответа: "+question.getVariant4() +"\n"+
+                    "Номер правильного варианта ответа: "+question.getAnswer() +"\n")
                     .setCancelable(false)
-                    .setNegativeButton("Хорошо", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("Ок",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
+                        }
+                    })
+                    .setNegativeButton("Удалить вопрос", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            class DeleteQuestion extends AsyncTask<Void, Void, Void> {
+
+                                @Override
+                                protected Void doInBackground(Void... voids) {
+
+                                    DBClient.getInstance(c).getAppDatabase().questionDao().delete(question);
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onPostExecute(Void aVoid) {
+                                    super.onPostExecute(aVoid);
+                                }
+                            }
+                            DeleteQuestion uq = new DeleteQuestion();
+                            uq.execute();
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            Toast.makeText(c, "Вопрос удалён!", Toast.LENGTH_SHORT).show();
+
                         }
                     });
             AlertDialog alert = builder.create();
             alert.show();
-            Toast.makeText(c, "Нажат", Toast.LENGTH_LONG).show();
         }
     }
 }

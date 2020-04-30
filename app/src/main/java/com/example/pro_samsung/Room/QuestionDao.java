@@ -1,10 +1,12 @@
-package com.example.pro_samsung;
+package com.example.pro_samsung.Room;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.example.pro_samsung.Question;
 
 import java.util.List;
 

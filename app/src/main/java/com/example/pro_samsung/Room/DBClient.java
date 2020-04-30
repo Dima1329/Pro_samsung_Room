@@ -1,4 +1,4 @@
-package com.example.pro_samsung;
+package com.example.pro_samsung.Room;
 
 import android.content.Context;
 import androidx.room.Room;
