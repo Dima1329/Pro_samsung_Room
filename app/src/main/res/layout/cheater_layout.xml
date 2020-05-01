@@ -4,11 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cheat_list"
         android:layout_width="350dp"
-        android:layout_height="500dp"
+        android:layout_height="444dp"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/null_questions"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="197dp"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/TextInRec"
+        android:textColor="@color/forText"
+        android:textSize="16sp" />
 </LinearLayout>

@@ -14,7 +14,7 @@
         <activity android:name=".TestActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".CheaterCabinetActivity" />
-        <activity android:name=".DeleteQuestionActivity" />
+        <activity android:name=".DeleteQuestionActivity"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+
 import com.example.pro_samsung.Question;
 
 import java.util.List;
@@ -22,9 +23,10 @@ public interface QuestionDao {
     @Insert
     void insert(Question employee);
 
-    @Update
-    void update(Question employee);
+
 
     @Delete
     void delete(Question employee);
+
+
 }
