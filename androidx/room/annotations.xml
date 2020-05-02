@@ -1,0 +1,9 @@
+<root>
+    <item
+        name='androidx.room.Room androidx.room.RoomDatabase.Builder&lt;T&gt; databaseBuilder(android.content.Context, java.lang.Class&lt;T&gt;, java.lang.String)'>
+        <annotation name='org.jetbrains.annotations.Contract'>
+            <val name="value" val="&quot;_,_,_-&gt;new&quot;" />
+            <val name="pure" val="true" />
+        </annotation>
+    </item>
+</root>

@@ -1,5 +1,6 @@
 package com.example.pro_samsung;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pro_samsung.Room.DBClient;
 
-import java.io.Serializable;
 
 public class DeleteQuestionActivity extends AppCompatActivity{
     private Question question;
+    private int size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +40,18 @@ public class DeleteQuestionActivity extends AppCompatActivity{
                 startActivity(i);
             }
         });
+
         builder.setNegativeButton("Удалить вопорс", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                @SuppressLint("StaticFieldLeak")
                 class DeleteQuestion extends AsyncTask<Void, Void, Void> {
 
                     @Override
                     protected Void doInBackground(Void... voids) {
-
-                        DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().delete(question);
+                        size = DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().getAll().size();
+                        if(size != 5){
+                            DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().delete(question);
+                        }
                         return null;
                     }
 
@@ -62,7 +67,11 @@ public class DeleteQuestionActivity extends AppCompatActivity{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(getApplicationContext(), "Вопрос удалён!", Toast.LENGTH_SHORT).show();
+                if(size == 5){
+                    Toast.makeText(getApplicationContext(), "Вопрос невозможно удалить, так как в списке минимальное количество вопросов!", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Вопрос удалён!", Toast.LENGTH_SHORT).show();
+                }
                 Intent i = new Intent(DeleteQuestionActivity.this, CheaterCabinetActivity.class);
                 startActivity(i);
             }

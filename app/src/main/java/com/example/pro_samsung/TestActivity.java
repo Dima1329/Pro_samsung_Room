@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -194,6 +195,10 @@ if(questions.size()!=0){
         var2.setText(questions.get(i).getVariant2());
         var3.setText(questions.get(i).getVariant3());
         var4.setText(questions.get(i).getVariant4());
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Нельзя перепройти тест!", Toast.LENGTH_LONG).show();
     }
 
 }
