@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/question_e"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/q" />
+
+    <EditText
+        android:id="@+id/var_first_e"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/vari1" />
+
+
+    <EditText
+        android:id="@+id/var_sec_e"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/vari2" />
+
+    <EditText
+        android:id="@+id/var_third_e"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/vari3"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/var_fourth_e"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/vari4" />
+
+    <EditText
+        android:id="@+id/answer_e"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+
+        android:hint="@string/num_of_ans"
+        android:inputType="number" />
+
+    <FrameLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_gravity="start"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/ok"
+            style="@style/Widget.MaterialComponents.Button"
+            android:textColor="@color/forText"
+            android:textSize="16sp"/>
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel_rus"
+            android:layout_gravity="end"
+
+            style="@style/Widget.MaterialComponents.Button"
+            android:textColor="@color/forText"
+            android:textSize="16sp"/>
+    </FrameLayout>
+
+</LinearLayout>

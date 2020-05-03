@@ -49,7 +49,7 @@
         android:text="@string/start"
         android:textColor="@color/forText"
         android:textSize="18sp"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
 
         />
 
@@ -81,11 +81,12 @@
         android:id="@+id/enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.Button"
+
         android:text="@string/Log_in"
+        style="@style/Widget.MaterialComponents.Button"
         android:textColor="@color/forText"
         android:textSize="16sp"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         />
 
     <!--   -->

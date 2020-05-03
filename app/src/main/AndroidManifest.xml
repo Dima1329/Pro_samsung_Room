@@ -15,14 +15,17 @@
         <activity android:name=".ResultActivity" />
         <activity android:name=".CheaterCabinetActivity" />
         <activity android:name=".DeleteQuestionActivity"/>
+        <activity android:name=".MainActivity" >
 
-        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddQuestionActivity" />
+        <activity android:name=".Logo"/>
+
     </application>
 
 </manifest>

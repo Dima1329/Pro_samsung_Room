@@ -6,11 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/Hint_for_cheater"
+        android:textSize="16sp" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cheat_list"
         android:layout_width="350dp"
-        android:layout_height="444dp"
+        android:layout_height="355dp"
         android:layout_gravity="center_horizontal" />
 
     <Button
@@ -21,6 +27,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/TextInRec"
+        android:textColor="@color/forText"
+        android:textSize="16sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <Button
+        android:id="@+id/add_question"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="197dp"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/add_q"
         android:textColor="@color/forText"
         android:textSize="16sp" />
 </LinearLayout>

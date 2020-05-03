@@ -48,7 +48,11 @@ public class ResultActivity extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO выход из приложения
+                Intent intent = new Intent(ResultActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("finish", true);
+                startActivity(intent);
+
 
             }
         });

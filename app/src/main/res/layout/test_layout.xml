@@ -17,17 +17,20 @@
             android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="17dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Hint"
             android:layout_gravity="center_horizontal"
-            />
+            android:text="@string/Hint"
+            android:textSize="16sp" />
 
 
         <View

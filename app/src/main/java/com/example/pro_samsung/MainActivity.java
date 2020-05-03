@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        if (getIntent().getBooleanExtra("finish", false)) finish();
+
+
         @SuppressLint("StaticFieldLeak")
         class UploadForTheFirstTimeQuestion extends AsyncTask<Void, Void, Void> {
 
@@ -148,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 e_clas_s.setText(shared.getString("clas_s",""));
                 is_first_launch = shared.getBoolean("is_first_launch", true);
                 if(!shared.getString("name", "").equals("")){
-                    Toast.makeText(this, "Привет, "+shared.getString("name",""), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Привет, "+shared.getString("name","")+"!", Toast.LENGTH_SHORT).show();
                 }
             }
 

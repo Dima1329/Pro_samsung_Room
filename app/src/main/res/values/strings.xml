@@ -12,4 +12,13 @@
     <string name="pass">Пароль</string>
     <string name="Hint">Нажмиете на кнопку с правилным вариантом ответа</string>
     <string name="TextInRec">Задать сдандартные вопросы</string>
+    <string name="cancel_rus">Отмена</string>
+    <string name="num_of_ans">Номер правильного ответа (цифрой)</string>
+    <string name="vari4">Четвёртый вариант ответа</string>
+    <string name="vari3">Третий вариант ответа</string>
+    <string name="vari2">Второй вариант ответа</string>
+    <string name="vari1">Первый вариант ответа</string>
+    <string name="q">Вопрос</string>
+    <string name="Hint_for_cheater">Нажмите на вопрос, чтобы изменить его</string>
+    <string name="add_q">Добавить вопрос</string>
 </resources>

@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -103,6 +104,24 @@ public class CheaterCabinetActivity extends AppCompatActivity{
 
             }
         });
+        Button add = findViewById(R.id.add_question);
+        add.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(CheaterCabinetActivity.this, AddQuestionActivity.class);
+                finish();
+                startActivity(intent);
+
+            }
+        });
+
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CheaterCabinetActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
 }
