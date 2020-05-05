@@ -23,13 +23,24 @@ public class MainActivity extends AppCompatActivity {
     public String name,second_name,school,clas_s;
     private Intent i;
     private boolean is_first_launch;
+    private String email, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getIntent().getBooleanExtra("finish", false)){
+            finish();
+        }
+
+        /*setContentView(R.layout.logo);
+
+        int i_for_launch = 0;
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
         setContentView(R.layout.activity_main);
 
-
-        if (getIntent().getBooleanExtra("finish", false)) finish();
 
 
         @SuppressLint("StaticFieldLeak")
@@ -61,8 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 super.onPostExecute(aVoid);
             }
         }
-        Button start = findViewById(R.id.var3);
+        final Button start = findViewById(R.id.var3);
         Button enter = findViewById(R.id.enter);
+        Button log_up = findViewById(R.id.log_up);
         email_for_teacher=findViewById(R.id.email_for_teacher);
         password_for_teacher=findViewById(R.id.password_for_teacher);
 
@@ -75,13 +87,24 @@ public class MainActivity extends AppCompatActivity {
         if(is_first_launch){
             UploadForTheFirstTimeQuestion uq = new UploadForTheFirstTimeQuestion();
             uq.execute();
-            Toast.makeText(this, "Это первый запуск. Стандартные вопросы загружены", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Это первый запуск. Стандартные вопросы загружены", Toast.LENGTH_SHORT).show();
 
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            SharedPreferences.Editor editor = shared.edit();
+
+            findViewById(R.id.hint_for_cheater).setVisibility(View.VISIBLE);
+            editor.putBoolean("is_first_launch", false);
+            editor.putString("email", "test@test.ru");
+            editor.putString("password","test");
+            editor.apply();
+
+        } else {
+            findViewById(R.id.hint_for_cheater).setVisibility(View.INVISIBLE);
+
         }
 
 
@@ -95,17 +118,16 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if(name.isEmpty() || second_name.isEmpty() || school.isEmpty() || clas_s.isEmpty()){
-                    Snackbar.make(view, "Заполните все поля", Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Заполните все поля!", Toast.LENGTH_LONG).show();
 
                 }else {
-                    shared = getSharedPreferences("baseSettings",Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = shared.edit();
                     editor.putString("name",name);
                     editor.putString("second_name",second_name);
                     editor.putString("school",school);
                     editor.putString("clas_s",clas_s);
-                    editor.putBoolean("is_first_launch", false);
-                editor.apply();
+
+                    editor.apply();
                     i = new Intent(MainActivity.this, TestActivity.class);
                     i.putExtra("name",name);
                     i.putExtra("second_name",second_name);
@@ -119,19 +141,26 @@ public class MainActivity extends AppCompatActivity {
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = email_for_teacher.getText().toString().trim();
-                String password = password_for_teacher.getText().toString().trim();
-                if(email.equals("test@test.ru") && password.equals("test")){
+                String email_in = email_for_teacher.getText().toString().trim();
+                String password_in  = password_for_teacher.getText().toString().trim();
+                if(email_in.equals(email) && password_in.equals(password)){
                     Intent i = new Intent(MainActivity.this, CheaterCabinetActivity.class);
                     startActivity(i);
-
                 } else {
-                    Snackbar.make(view, "Пароль или логин неверный!", Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Пароль или логин неверный!", Toast.LENGTH_LONG).show();
 
                 }
 
             }
         });
+
+        log_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,LogUpActivity.class));
+            }
+        });
+
 
 
     }
@@ -142,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadSettings() {
         shared = getSharedPreferences("baseSettings", Context.MODE_PRIVATE);
+
         if(shared != null){
             is_first_launch = shared.getBoolean("is_first_launch", true);
             if(!is_first_launch){
@@ -150,6 +180,8 @@ public class MainActivity extends AppCompatActivity {
                 e_school.setText(shared.getString("school",""));
                 e_clas_s.setText(shared.getString("clas_s",""));
                 is_first_launch = shared.getBoolean("is_first_launch", true);
+                email = shared.getString("email","test@test.ru");
+                password = shared.getString("password","test");
                 if(!shared.getString("name", "").equals("")){
                     Toast.makeText(this, "Привет, "+shared.getString("name","")+"!", Toast.LENGTH_SHORT).show();
                 }

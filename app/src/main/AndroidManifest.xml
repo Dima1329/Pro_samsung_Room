@@ -7,7 +7,7 @@
         android:allowBackup="true"
         android:icon="@drawable/galochka"
         android:label="@string/app_name"
-
+        android:screenOrientation="portrait"
 
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddQuestionActivity" />
-        <activity android:name=".Logo"/>
+        <activity android:name=".LogUpActivity" />
 
     </application>
 

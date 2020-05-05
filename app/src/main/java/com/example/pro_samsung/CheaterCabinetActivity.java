@@ -1,13 +1,19 @@
 package com.example.pro_samsung;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,6 +58,9 @@ public class CheaterCabinetActivity extends AppCompatActivity{
         AdapterForCheater adapter = new AdapterForCheater(this, questions);
         cheater_list.setAdapter(adapter);
         Button null_question = findViewById(R.id.null_questions);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         null_question.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -116,6 +125,12 @@ public class CheaterCabinetActivity extends AppCompatActivity{
 
             }
         });
+        findViewById(R.id.protocol_uronit_vse_for_natasha).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSharedPreferences("baseSettings", Context.MODE_PRIVATE).edit().clear().apply();
+            }
+        });
 
     }
     @Override
@@ -123,5 +138,14 @@ public class CheaterCabinetActivity extends AppCompatActivity{
         Intent intent = new Intent(CheaterCabinetActivity.this, MainActivity.class);
         startActivity(intent);
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {// взято с http://streletzcoder.ru/delaem-knopku-nazad-v-android-prilozhenii/
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(CheaterCabinetActivity.this, MainActivity.class);
 
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

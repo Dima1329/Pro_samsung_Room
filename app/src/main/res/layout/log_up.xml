@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+
+        android:id="@+id/email_old"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Cтарый логин"/>
+
+    <EditText
+        android:id="@+id/password_old"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Cтарый пароль"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/email_new"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Новый логин"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/password_new"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Новый пароль"
+
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/password_new_check"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Потвердите новый пароль"
+
+        android:inputType="textPassword" />
+    <FrameLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/log_up_for_cheater"
+            android:layout_gravity="start"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/ok"
+            style="@style/Widget.MaterialComponents.Button"
+            android:textColor="@color/forText"
+            android:textSize="16sp"/>
+        <Button
+            android:id="@+id/no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel_rus"
+            android:layout_gravity="end"
+
+            style="@style/Widget.MaterialComponents.Button"
+            android:textColor="@color/forText"
+            android:textSize="16sp"/>
+    </FrameLayout>
+</LinearLayout>

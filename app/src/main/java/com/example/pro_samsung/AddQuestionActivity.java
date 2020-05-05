@@ -41,10 +41,12 @@ public class AddQuestionActivity extends AppCompatActivity {
                 v2 = v2_e.getText().toString().trim();
                 v3 = v3_e.getText().toString().trim();
                 v4 = v4_e.getText().toString().trim();
-                ans = Integer.parseInt(ans_e.getText().toString().trim());
-                if(question.isEmpty()|| v1.isEmpty()|| v2.isEmpty()|| v3.isEmpty()|| v4.isEmpty()||ans_e.getText().toString().isEmpty()){
+
+                if(question.isEmpty()|| v1.isEmpty()|| v2.isEmpty()|| v3.isEmpty()|| v4.isEmpty()|| ans_e.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(),"Заполните все поля!", Toast.LENGTH_LONG).show();
                 } else {
+                    ans = Integer.parseInt(ans_e.getText().toString().trim());
+
                     if (ans<5 && ans > 0){
                         question_q=new Question(question,v1,v2,v3,v4,ans);
                         @SuppressLint("StaticFieldLeak")

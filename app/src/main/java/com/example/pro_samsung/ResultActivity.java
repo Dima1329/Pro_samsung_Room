@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +25,8 @@ public class ResultActivity extends AppCompatActivity {
 
 
 
+    private Chronometer mChronometer;
 
-    @SuppressLint("SetTextI18n")
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,29 +34,19 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.result_activity);
         Bundle arguments = getIntent().getExtras();
 
-        assert arguments != null;
-        String name = Objects.requireNonNull(arguments.get("name")).toString();
-        String sec_name = Objects.requireNonNull(arguments.get("second_name")).toString();
-        String school = Objects.requireNonNull(arguments.get("school")).toString();
-        String clas_s = Objects.requireNonNull(arguments.get("clas_s")).toString();
-        int mark = Integer.parseInt(Objects.requireNonNull(arguments.get("mark")).toString());
+
+
+        String name = arguments.get("name").toString();
+        String sec_name = arguments.get("second_name").toString();
+        String school = arguments.get("school").toString();
+        String clas_s = arguments.get("clas_s").toString();
+        int mark = Integer.parseInt(arguments.get("mark").toString());
 
         TextView hi = findViewById(R.id.hi);
         TextView m = findViewById(R.id.mark);
-        hi.setText("-\t "+name+" "+sec_name + "\n-\t учащийся(аяся) в школе " + school + "\n-\t из класса " + clas_s +  "\n-\t получил(а) оценку");
+        hi.setText(String.format("-\t %s %s\n-\t учащийся(аяся) в школе %s\n-\t из класса %s\n-\t получил(а) оценку", name, sec_name, school, clas_s));
         m.setText(String.valueOf(mark));
-        Button ok = findViewById(R.id.ok);
-        ok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ResultActivity.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("finish", true);
-                startActivity(intent);
 
-
-            }
-        });
 
 
     }
