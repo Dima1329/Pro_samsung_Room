@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public String name,second_name,school,clas_s;
     private Intent i;
     private boolean is_first_launch;
-    private String email, password;
+    private String login, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String login_in = login_for_teacher.getText().toString().trim();
                 String password_in  = password_for_teacher.getText().toString().trim();
-                if(login_in.equals(email) && password_in.equals(password)){
+                if(login_in.equals(login) && password_in.equals(password)){
                     Intent i = new Intent(MainActivity.this, CheaterCabinetActivity.class);
                     startActivity(i);
                 } else {
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 e_school.setText(shared.getString("school",""));
                 e_clas_s.setText(shared.getString("clas_s",""));
                 is_first_launch = shared.getBoolean("is_first_launch", true);
-                email = shared.getString("login","test@test.ru");
+                login = shared.getString("login","test@test.ru");
                 password = shared.getString("password","test");
                 if(!shared.getString("name", "").equals("")){
                     Toast.makeText(this, "Привет, "+shared.getString("name","")+"!", Toast.LENGTH_SHORT).show();
