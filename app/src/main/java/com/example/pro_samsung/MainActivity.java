@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences shared;
-    private EditText e_name,e_second_name,e_school,e_clas_s,email_for_teacher,password_for_teacher;
+    private EditText e_name,e_second_name,e_school,e_clas_s, login_for_teacher,password_for_teacher;
     public String name,second_name,school,clas_s;
     private Intent i;
     private boolean is_first_launch;
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         final Button start = findViewById(R.id.var3);
         Button enter = findViewById(R.id.enter);
         Button log_up = findViewById(R.id.log_up);
-        email_for_teacher=findViewById(R.id.email_for_teacher);
+        login_for_teacher =findViewById(R.id.login_for_teacher);
         password_for_teacher=findViewById(R.id.password_for_teacher);
 
         e_name = findViewById(R.id.name);
@@ -139,9 +138,9 @@ public class MainActivity extends AppCompatActivity {
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email_in = email_for_teacher.getText().toString().trim();
+                String login_in = login_for_teacher.getText().toString().trim();
                 String password_in  = password_for_teacher.getText().toString().trim();
-                if(email_in.equals(email) && password_in.equals(password)){
+                if(login_in.equals(email) && password_in.equals(password)){
                     Intent i = new Intent(MainActivity.this, CheaterCabinetActivity.class);
                     startActivity(i);
                 } else {

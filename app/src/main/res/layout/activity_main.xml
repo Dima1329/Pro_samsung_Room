@@ -13,7 +13,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:hint="@string/Name" />
 
     <EditText
@@ -21,7 +21,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:hint="@string/Sec_name" />
 
 
@@ -30,7 +30,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:hint="@string/School" />
 
     <EditText
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/Clas_s"
-        android:inputType="textPersonName" />
+        android:inputType="text" />
 
     <Button
         android:id="@+id/var3"
@@ -61,12 +61,12 @@
 
 
     <EditText
-        android:id="@+id/email_for_teacher"
+        android:id="@+id/login_for_teacher"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+        android:hint="@string/Login_text"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/password_for_teacher"

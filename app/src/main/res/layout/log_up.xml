@@ -8,7 +8,7 @@
 
     <EditText
 
-        android:id="@+id/email_old"
+        android:id="@+id/login_old"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,7 +24,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/email_new"
+        android:id="@+id/login_new"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:ems="10"

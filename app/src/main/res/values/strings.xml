@@ -21,7 +21,8 @@
     <string name="q">Вопрос</string>
     <string name="Hint_for_cheater">Нажмите на вопрос, чтобы изменить его</string>
     <string name="add_q">Добавить вопрос</string>
-    <string name="hint">    Здраствуйте! Стандартные логин и пароль - \'test@test.ru\' и \'test\'. Чтобы их изменить, нажмите на кнопку регистрация</string>
+    <string name="hint">\t Здраствуйте! Стандартные логин и пароль - \'test@test.ru\' и \'test\'. Чтобы их изменить, нажмите на кнопку регистрация</string>
     <string name="log_up">Зарегистрироваться</string>
     <string name="end">Вернутся к заводским настройкам</string>
+    <string name="Login_text">Логин</string>
 </resources>
