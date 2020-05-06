@@ -190,7 +190,7 @@ if(questions.size()!=0){
     }
 
     private void update_texts() {
-        Ex_name.setText("   "+questions.get(i).getQuestion());
+        Ex_name.setText(String.format("\t%s", questions.get(i).getQuestion()));
         var1.setText(questions.get(i).getVariant1());
         var2.setText(questions.get(i).getVariant2());
         var3.setText(questions.get(i).getVariant3());

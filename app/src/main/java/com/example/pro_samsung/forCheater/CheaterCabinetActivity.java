@@ -131,7 +131,9 @@ public class CheaterCabinetActivity extends AppCompatActivity{
                 SharedPreferences.Editor editor = getSharedPreferences("baseSettings", Context.MODE_PRIVATE).edit();
                 editor.clear();
                 editor.apply();
-                System.exit(1);
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
             }
         });
 
