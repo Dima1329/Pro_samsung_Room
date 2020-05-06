@@ -125,17 +125,7 @@ public class CheaterCabinetActivity extends AppCompatActivity{
 
             }
         });
-        findViewById(R.id.protocol_uronit_vse_for_natasha).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences.Editor editor = getSharedPreferences("baseSettings", Context.MODE_PRIVATE).edit();
-                editor.clear();
-                editor.apply();
-                Intent intent = getIntent();
-                finish();
-                startActivity(intent);
-            }
-        });
+
 
     }
     @Override

@@ -11,7 +11,7 @@
     <string name="email">Email</string>
     <string name="pass">Пароль</string>
     <string name="Hint">Нажмиете на кнопку с правилным вариантом ответа</string>
-    <string name="TextInRec">Задать сдандартные вопросы</string>
+    <string name="TextInRec">Устонавить вопросы из приложения</string>
     <string name="cancel_rus">Отмена</string>
     <string name="num_of_ans">Номер правильного ответа (цифрой)</string>
     <string name="vari4">Четвёртый вариант ответа</string>
