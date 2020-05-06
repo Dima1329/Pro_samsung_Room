@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pro_samsung.Room.DBClient;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.pro_samsung.forCheater.CheaterCabinetActivity;
+import com.example.pro_samsung.forCheater.LogUpActivity;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,21 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private Intent i;
     private boolean is_first_launch;
     private String email, password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getIntent().getBooleanExtra("finish", false)){
-            finish();
-        }
-
-        /*setContentView(R.layout.logo);
-
-        int i_for_launch = 0;
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
         setContentView(R.layout.activity_main);
 
 
@@ -48,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected Void doInBackground(Void... voids) {
+                List<Question> questions = DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().getAll();
+                for (Question question : questions) {
+                    DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().delete(question);
+                }
+                questions.clear();
                 Question q = new Question("Место, где река впадает в море, озеро, другую реку","исток","приток","русло","устье",4);
                 DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
                 q = new Question("Граница между бассейнами рек","русло","водораздел","речная система","устье",2);
@@ -147,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(MainActivity.this, CheaterCabinetActivity.class);
                     startActivity(i);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Пароль или логин неверный!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Пароль или логин неверный!", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -157,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         log_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,LogUpActivity.class));
+                startActivity(new Intent(MainActivity.this, LogUpActivity.class));
             }
         });
 

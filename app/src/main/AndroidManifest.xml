@@ -13,19 +13,25 @@
         android:theme="@style/AppTheme">
         <activity android:name=".TestActivity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".CheaterCabinetActivity" />
-        <activity android:name=".DeleteQuestionActivity"/>
-        <activity android:name=".MainActivity" >
-
+        <activity android:name=".forCheater.CheaterCabinetActivity" />
+        <activity android:name=".forCheater.DeleteQuestionActivity"/>
+        <activity android:name=".Logo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddQuestionActivity" />
-        <activity android:name=".LogUpActivity" />
+        <activity android:name=".MainActivity" >
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".forCheater.AddQuestionActivity" />
+        <activity android:name=".forCheater.LogUpActivity" />
     </application>
 
 </manifest>

@@ -1,28 +1,19 @@
-package com.example.pro_samsung;
+package com.example.pro_samsung.forCheater;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pro_samsung.Room.DBClient;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.pro_samsung.Question;
+import com.example.pro_samsung.R;
 
-import java.io.Serializable;
 import java.util.List;
 public class AdapterForCheater extends RecyclerView.Adapter<AdapterForCheater.ViewHolder> {
 

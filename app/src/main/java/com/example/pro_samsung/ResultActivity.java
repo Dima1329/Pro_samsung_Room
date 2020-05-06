@@ -46,7 +46,16 @@ public class ResultActivity extends AppCompatActivity {
         TextView m = findViewById(R.id.mark);
         hi.setText(String.format("-\t %s %s\n-\t учащийся(аяся) в школе %s\n-\t из класса %s\n-\t получил(а) оценку", name, sec_name, school, clas_s));
         m.setText(String.valueOf(mark));
-
+        Button ok= findViewById(R.id.exit_activity);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_MAIN);
+                i.addCategory(Intent.CATEGORY_HOME);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);// https://ru.stackoverflow.com/questions/575190/Выход-из-android-приложения
+            }
+        });
 
 
     }

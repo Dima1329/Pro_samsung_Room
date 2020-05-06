@@ -1,4 +1,4 @@
-package com.example.pro_samsung;
+package com.example.pro_samsung.forCheater;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pro_samsung.Question;
+import com.example.pro_samsung.R;
 import com.example.pro_samsung.Room.DBClient;
 
 

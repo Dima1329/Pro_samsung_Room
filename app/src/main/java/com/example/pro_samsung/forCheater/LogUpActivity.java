@@ -1,4 +1,4 @@
-package com.example.pro_samsung;
+package com.example.pro_samsung.forCheater;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pro_samsung.MainActivity;
+import com.example.pro_samsung.R;
 
 public class LogUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {

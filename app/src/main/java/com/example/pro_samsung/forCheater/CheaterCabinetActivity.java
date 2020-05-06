@@ -1,9 +1,7 @@
-package com.example.pro_samsung;
+package com.example.pro_samsung.forCheater;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -11,13 +9,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pro_samsung.MainActivity;
+import com.example.pro_samsung.Question;
+import com.example.pro_samsung.R;
 import com.example.pro_samsung.Room.DBClient;
 
 import java.util.ArrayList;
@@ -128,7 +128,10 @@ public class CheaterCabinetActivity extends AppCompatActivity{
         findViewById(R.id.protocol_uronit_vse_for_natasha).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSharedPreferences("baseSettings", Context.MODE_PRIVATE).edit().clear().apply();
+                SharedPreferences.Editor editor = getSharedPreferences("baseSettings", Context.MODE_PRIVATE).edit();
+                editor.clear();
+                editor.apply();
+                System.exit(1);
             }
         });
 
