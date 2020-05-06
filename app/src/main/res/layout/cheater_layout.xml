@@ -37,7 +37,6 @@
         android:id="@+id/null_questions"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="197dp"
-
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/TextInRec"

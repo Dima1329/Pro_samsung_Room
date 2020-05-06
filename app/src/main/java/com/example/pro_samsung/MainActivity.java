@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
             findViewById(R.id.hint_for_cheater).setVisibility(View.VISIBLE);
             editor.putBoolean("is_first_launch", false);
-            editor.putString("email", "test@test.ru");
+            editor.putString("login", "test@test.ru");
             editor.putString("password","test");
             editor.apply();
 
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 e_school.setText(shared.getString("school",""));
                 e_clas_s.setText(shared.getString("clas_s",""));
                 is_first_launch = shared.getBoolean("is_first_launch", true);
-                email = shared.getString("email","test@test.ru");
+                email = shared.getString("login","test@test.ru");
                 password = shared.getString("password","test");
                 if(!shared.getString("name", "").equals("")){
                     Toast.makeText(this, "Привет, "+shared.getString("name","")+"!", Toast.LENGTH_SHORT).show();
