@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         if(is_first_launch){
             UploadForTheFirstTimeQuestion uq = new UploadForTheFirstTimeQuestion();
             uq.execute();
-            Toast.makeText(this, R.string.QLoaded, Toast.LENGTH_SHORT).show();
 
             try {
                 Thread.sleep(100);
@@ -95,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
             findViewById(R.id.hint_for_cheater).setVisibility(View.VISIBLE);
             editor.putBoolean("is_first_launch", false);
-            editor.putString("login", "test@test.ru");
-            editor.putString("password","test");
             editor.apply();
+            login = "test@test.ru";
+            password = "test";
 
         } else {
             findViewById(R.id.hint_for_cheater).setVisibility(View.INVISIBLE);
@@ -185,8 +184,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        } else {
-            Toast.makeText(this,"Ничего не сохранено",Toast.LENGTH_LONG).show();
         }
 
     }
