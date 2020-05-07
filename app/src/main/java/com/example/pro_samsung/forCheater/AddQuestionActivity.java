@@ -45,7 +45,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                 v4 = v4_e.getText().toString().trim();
 
                 if(question.isEmpty()|| v1.isEmpty()|| v2.isEmpty()|| v3.isEmpty()|| v4.isEmpty()|| ans_e.getText().toString().isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Заполните все поля!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),R.string.EmptyErorr, Toast.LENGTH_LONG).show();
                 } else {
                     ans = Integer.parseInt(ans_e.getText().toString().trim());
 
@@ -77,7 +77,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                         Intent i = new Intent(AddQuestionActivity.this, CheaterCabinetActivity.class);
                         startActivity(i);
                     } else {
-                        Toast.makeText(getApplicationContext(),"Ответом должна быть цифра от 1 до 4!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.EroorrNumOfAns, Toast.LENGTH_LONG).show();
 
                     }
                 }

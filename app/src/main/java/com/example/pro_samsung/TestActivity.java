@@ -83,7 +83,7 @@ public class TestActivity extends AppCompatActivity {
         clas_s = arguments.get("clas_s").toString();
 
         TextView TextStudent = findViewById(R.id.Name);
-        TextStudent.setText("   Привет, "+name+" "+sec_name + " учащийся(яся) в школе " + school + " из класса " + clas_s +  "!");
+        TextStudent.setText(String.format("   Привет, %s %s учащийся(яся) в школе %s из класса %s!", name, sec_name, school, clas_s));
 
         Ex_name =  findViewById(R.id.Ex_name);
         var1 =  findViewById(R.id.var1);

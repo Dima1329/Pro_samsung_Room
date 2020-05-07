@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         if(is_first_launch){
             UploadForTheFirstTimeQuestion uq = new UploadForTheFirstTimeQuestion();
             uq.execute();
-            Toast.makeText(this, "Это первый запуск. Стандартные вопросы загружены", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.QLoaded, Toast.LENGTH_SHORT).show();
 
             try {
                 Thread.sleep(100);
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if(name.isEmpty() || second_name.isEmpty() || school.isEmpty() || clas_s.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Заполните все поля!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.EmptyErorr, Toast.LENGTH_LONG).show();
 
                 }else {
                     SharedPreferences.Editor editor = shared.edit();
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(MainActivity.this, CheaterCabinetActivity.class);
                     startActivity(i);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Пароль или логин неверный!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.Failed_login, Toast.LENGTH_SHORT).show();
 
                 }
 

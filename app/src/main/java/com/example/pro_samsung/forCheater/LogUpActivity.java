@@ -45,10 +45,10 @@ public class LogUpActivity extends AppCompatActivity {
                 String check_pass = check_pass_e.getText().toString().trim();
 
                 if(old_login.isEmpty() || old_pass.isEmpty() || new_login.isEmpty() || new_pass.isEmpty() || check_pass.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Заполните все поля!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.EmptyErorr, Toast.LENGTH_LONG).show();
                 } else {
                     if (!new_pass.equals(check_pass)){
-                        Toast.makeText(getApplicationContext(), "Новые пароли не совпадают!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.ErorrNonSamePasswords, Toast.LENGTH_LONG).show();
                     } else {
                         SharedPreferences shared = getSharedPreferences("baseSettings", Context.MODE_PRIVATE);
 
@@ -56,7 +56,7 @@ public class LogUpActivity extends AppCompatActivity {
                         String login = shared.getString("login","test@test.ru");
                         String password = shared.getString("password","test");
                         if(!old_login.equals(login) && !old_pass.equals(password)){
-                            Toast.makeText(getApplicationContext(), "Пароль или логин неверный!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), R.string.Failed_login, Toast.LENGTH_LONG).show();
 
                         } else {
                             shared.edit().putString("login", new_login).putString("password", new_pass).apply();

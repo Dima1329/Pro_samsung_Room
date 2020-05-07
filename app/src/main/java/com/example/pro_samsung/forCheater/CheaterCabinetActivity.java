@@ -59,6 +59,7 @@ public class CheaterCabinetActivity extends AppCompatActivity{
         cheater_list.setAdapter(adapter);
         Button null_question = findViewById(R.id.null_questions);
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         null_question.setOnClickListener(new View.OnClickListener() {

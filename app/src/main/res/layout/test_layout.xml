@@ -5,20 +5,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:padding="25dp"
+    >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+
 
 
         <TextView
             android:id="@+id/Name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_gravity="center_horizontal"
+            />
 
         <View
             android:layout_width="match_parent"
@@ -33,10 +34,10 @@
             android:textSize="16sp" />
 
 
-        <View
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="61dp" />
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="37dp" />
 
         <TextView
             android:id="@+id/Ex_name"
@@ -48,10 +49,9 @@
             android:textColor="@color/forDarkText"
             android:textSize="20sp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="57dp" />
-    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
 
     <Button

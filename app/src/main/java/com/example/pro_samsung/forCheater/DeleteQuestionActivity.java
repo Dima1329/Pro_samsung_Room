@@ -36,7 +36,7 @@ public class DeleteQuestionActivity extends AppCompatActivity{
                         "Четвёртый вариант ответа: " + question.getVariant4() + "\n" +
                         "Номер правильного варианта ответа: " + question.getAnswer() + "\n");
         builder.setCancelable(false);
-        builder.setPositiveButton("Ок", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.cancel_rus, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 Intent i = new Intent(DeleteQuestionActivity.this, CheaterCabinetActivity.class);
                 startActivity(i);
@@ -70,9 +70,9 @@ public class DeleteQuestionActivity extends AppCompatActivity{
                     e.printStackTrace();
                 }
                 if(size == 5){
-                    Toast.makeText(getApplicationContext(), "Вопрос невозможно удалить, так как в списке минимальное количество вопросов!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.ErorrMinQ, Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Вопрос удалён!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.QDeleted, Toast.LENGTH_SHORT).show();
                 }
                 Intent i = new Intent(DeleteQuestionActivity.this, CheaterCabinetActivity.class);
                 startActivity(i);

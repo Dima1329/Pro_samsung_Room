@@ -25,4 +25,11 @@
     <string name="log_up">Зарегистрироваться</string>
     <string name="end">Вернутся к заводским настройкам</string>
     <string name="Login_text">Логин</string>
+    <string name="Failed_login">Пароль или логин неверный!</string>
+    <string name="EmptyErorr">Заполните все поля!</string>
+    <string name="QLoaded">Это первый запуск. Стандартные вопросы загружены</string>
+    <string name="EroorrNumOfAns">Ответом должна быть цифра от 1 до 4!</string>
+    <string name="ErorrMinQ">Вопрос невозможно удалить, так как в списке минимальное количество вопросов!</string>
+    <string name="QDeleted">Вопрос удалён!</string>
+    <string name="ErorrNonSamePasswords">Новые пароли не совпадают!</string>
 </resources>
