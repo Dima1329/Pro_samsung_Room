@@ -57,13 +57,13 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(i);// https://ru.stackoverflow.com/questions/575190/Выход-из-android-приложения
             }
         });
-        
+
 
 
     }
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, "Нельзя перепройти тест!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Нельзя перепройти тест!", Toast.LENGTH_SHORT).show();
     }
 
 

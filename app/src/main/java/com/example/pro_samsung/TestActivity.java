@@ -198,7 +198,7 @@ if(questions.size()!=0){
     }
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, "Нельзя перепройти тест!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Нельзя перепройти тест!", Toast.LENGTH_SHORT).show();
     }
 
 }
