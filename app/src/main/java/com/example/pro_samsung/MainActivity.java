@@ -41,10 +41,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... voids) {
                 List<Question> questions = DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().getAll();
-                for (Question question : questions) {
-                    DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().delete(question);
+                if(!questions.isEmpty()){
+                    for (Question question : questions) {
+                        DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().delete(question);
+                    }
+                    questions.clear();
                 }
-                questions.clear();
+
                 Question q = new Question("Место, где река впадает в море, озеро, другую реку","исток","приток","русло","устье",4);
                 DBClient.getInstance(getApplicationContext()).getAppDatabase().questionDao().insert(q);
                 q = new Question("Граница между бассейнами рек","русло","водораздел","речная система","устье",2);
@@ -115,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if(name.isEmpty() || second_name.isEmpty() || school.isEmpty() || clas_s.isEmpty()){
                     Toast.makeText(getApplicationContext(), R.string.EmptyErorr, Toast.LENGTH_LONG).show();
-
                 }else {
                     SharedPreferences.Editor editor = shared.edit();
                     editor.putString("name",name);

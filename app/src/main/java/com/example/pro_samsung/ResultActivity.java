@@ -35,7 +35,7 @@ public class ResultActivity extends AppCompatActivity {
         Bundle arguments = getIntent().getExtras();
 
 
-
+        assert arguments != null;
         String name = arguments.get("name").toString();
         String sec_name = arguments.get("second_name").toString();
         String school = arguments.get("school").toString();
@@ -55,6 +55,13 @@ public class ResultActivity extends AppCompatActivity {
                 i.addCategory(Intent.CATEGORY_HOME);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);// https://ru.stackoverflow.com/questions/575190/Выход-из-android-приложения
+            }
+        });
+        ok.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                getSharedPreferences("baseSettings", Context.MODE_PRIVATE).edit().clear().apply();
+                return false;
             }
         });
 
