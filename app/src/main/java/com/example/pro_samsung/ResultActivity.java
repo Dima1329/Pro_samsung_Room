@@ -57,13 +57,7 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(i);// https://ru.stackoverflow.com/questions/575190/Выход-из-android-приложения
             }
         });
-        ok.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                getSharedPreferences("baseSettings", Context.MODE_PRIVATE).edit().clear().apply();
-                return false;
-            }
-        });
+
 
 
 

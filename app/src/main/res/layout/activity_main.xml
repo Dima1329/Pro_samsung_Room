@@ -11,7 +11,7 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
@@ -19,7 +19,7 @@
 
     <EditText
         android:id="@+id/sec_name"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
@@ -28,7 +28,7 @@
 
     <EditText
         android:id="@+id/school"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
@@ -36,7 +36,7 @@
 
     <EditText
         android:id="@+id/clas_s"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/Clas_s"
