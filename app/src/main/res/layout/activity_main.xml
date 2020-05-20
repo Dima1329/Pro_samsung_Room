@@ -63,7 +63,7 @@
 
     <EditText
         android:id="@+id/login_for_teacher"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/Login_text"
@@ -71,7 +71,7 @@
 
     <EditText
         android:id="@+id/password_for_teacher"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/pass"
